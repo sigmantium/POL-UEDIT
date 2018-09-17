@@ -1,4 +1,21 @@
 /L1"eScript"
+/TGBegin "Functions"
+/TGFindStr = "^[\t ]*function[\t ]+([0-9a-zA-Z_]*[^\)]*\))"
+/TGBegin "Params"
+/TGFindStr = "[ \t\n]*([^,]+)"
+/TGFindBStart = "\("
+/TGFindBEnd = "\)"
+/TGEnd
+/TGEnd
+/TGBegin "Programs"
+/TGFindStr = "^[\t ]*function[\t ]+([0-9a-zA-Z_]*)"
+/TGBegin "Params"
+/TGFindStr = "[ \t\n]*([^,]+)"
+/TGFindBStart = "\("
+/TGFindBEnd = "\)"
+/TGEnd
+/TGEnd
+/Regexp Type = Perl
 /Colors = 0,32768,32768,8421440,4194432,
 /Colors Back = 16777215,16777215,16777215,16777215,16777215,
 /Colors Auto Back = 1,1,1,1,1,
@@ -11,17 +28,12 @@
 /String Chars = "'
 /File Extensions = SRC INC EM
 /Delimiters = ~!@%^&*()-+=|/{}[]:;"' <>	,.?
-/Function String 1 = "%[ ^t]++program [a-zA-Z0-9_]+[ ]++([0-9a-zA-Z_,:=+ 	^-^"]++)[ ^t]++$"
-/Function String 2 = "%[ ^t]++function ^([a-zA-Z0-9_]+[ ]++([0-9a-zA-Z_,:=+ 	^-^"]++)^)[ ^t]++$"
-/Function String 3 = "%[ ^t]++exported function ^([a-zA-Z0-9_]+[ ]++([0-9a-zA-Z_,:=+ 	^-^"]++)^)[ ^t]++$"
-/Function String 4 = "%^([a-zA-Z0-9_]+[ ]++([0-9a-zA-Z_,:=+ 	^-^"]++);^)$"
 /Indent Strings = "case" "else" "elseif" "enum" "for" "foreach" "function" "if" "program" "repeat" "while" "do"
 /Unindent Strings = "else" "elseif" "endif" "endfunction" "endprogram" "endwhile" "endcase" "endenum" "endfor" "endforeach" "until" "dowhile"
 /Open Brace Strings = "case" "else" "elseif" "enum" "for" "foreach" "function" "if" "program" "repeat" "while" "do" "{" "(" "["
 /Close Brace Strings = "endcase" "endif" "endif" "endenum" "endfor" "endforeach" "endfunction" "endif" "endprogram" "until" "endwhile" "dowhile" "}" ")" "]"
 /Open Fold Strings = "case" "enum" "for" "foreach" "function" "if" "program" "repeat" "while" "do" "{" "(" "["
 /Close Fold Strings = "endcase" "endenum" "endfor" "endforeach" "endfunction" "endif" "endprogram" "until" "endwhile" "dowhile" "}" ")" "]"
-
 /C1"Core Keywords" Colors = 10485760 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 array
 const
@@ -35,7 +47,6 @@ function
 program
 struct
 var
-
 /C2"Script Keywords" Colors = 10485760 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 !
 %
@@ -87,11 +98,9 @@ while
 |
 }
 ~
-
 /C3"Header Keywords" Colors = 10485760 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 include
 use
-
 /C4"EM Files" Colors = 0 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 ATTRIBUTES
 BASIC
@@ -107,29 +116,12 @@ MATH
 NPC
 OS
 POLSYS
-SQL
 STORAGE
 UO
 UTIL
 UNICODE
 VITALS
-
 /C5"EM FUNCTIONS" Colors = 255 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
-mysql_connect
-mysql_query
-mysql_fetch_row
-mysql_affected_rows
-mysql_num_fields
-mysql_num_rows
-mysql_select_db
-mysql_field_name
-mysql_close
-AddRealm
-DeleteRealm
-FormatItemDescription
-MD5Encrypt
-LogCPropProfile
-CreateParty
 ACos
 ASin
 ATan
@@ -158,15 +150,10 @@ CDbl
 CInt
 CStr
 CancelTarget
-CanWalk
 CanMove
 Ceil
 CheckLineOfSight
 CheckLosAt
-CheckLosBetween
-CloseGump
-CloseWindow
-CoordinateDistanceEuclidean
 CheckSkill
 Clear_Event_Queue
 CloseTradeWindow
@@ -202,31 +189,6 @@ Detach
 DisableEvents
 DisconnectClient
 Distance
-DistanceEuclidean
-GetGlobalPropertyNames
-GetRegionLightLevelAtLocation
-IsStackable
-ListGhostsNearLocation
-ListOfflineMobilesInRealm
-ListMobilesInBox
-ListStaticsNearLocationOfType
-ListStaticsNearLocationWithFlag
-PlayMovingEffectEx
-PlayMovingEffectXYZEx
-PlayObjectCenteredEffectEx
-PlaySoundEffectXYZ
-PlayMusic
-PlayStationaryEffectEx
-SendCharProfile
-SendCharacterRaceChanger
-SendHousingTool
-SendOverallSeason
-SendPopUpMenu
-SingleClick
-UpdateItem
-UpdateMobile
-GetMidpointCircleCoords
-RandomIntMinMax
 EnableEvents
 EnumerateItemsInContainer
 EnumerateOnlineCharacters
@@ -475,7 +437,6 @@ Wander
 WriteFile
 WriteHTML
 WriteHTMLRaw
-
 /C6"Object Members" Colors = 8404992 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 .acct
 .acctname
@@ -663,7 +624,6 @@ WriteHTMLRaw
 .ynorth
 .ysouth
 .z
-
 /C7"Object Methods" Colors = 255 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 .AddAllyGuild
 .AddEnemyGuild
@@ -763,7 +723,6 @@ WriteHTMLRaw
 .Transmit
 .TypeOf
 .UnBan
-
 /C8"EM Constants" Colors = 8421376 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 CRMULTI_FACING_EAST
 CRMULTI_FACING_NORTH
@@ -777,15 +736,7 @@ LH_FLAG_LOS
 LH_FLAG_INCLUDE_HIDDEN
 FP_IGNORE_MOBILES
 FP_IGNORE_DOORS
-VENDOR_SEND_AOS_TOOLTIP
-VENDOR_BUYABLE_CONTAINER_FILTER
-SENDDIALOGMENU_FORCE_OLD
 LISTENPT_HEAR_GHOSTS
-LISTENPT_HEAR_TOKENS
-LISTENPT_NO_SPEECH
-LISTEX_FLAG_CONCEALED
-LISTEX_FLAG_PLAYERS_ONLY
-LISTEX_FLAG_NPC_ONLY
 ITEMS_IGNORE_STATICS
 ITEMS_IGNORE_MULTIS
 LIST_IGNORE_Z
@@ -824,7 +775,6 @@ TILEDATA_FLAG_ROOF
 TILEDATA_FLAG_DOOR
 TILEDATA_FLAG_STAIRBACK
 TILEDATA_FLAG_STAIRRIGHT
-TILEDATA_FLAG_HOVEROVER
 MAPDATA_FLAG_NONE
 MAPDATA_FLAG_MOVELAND
 MAPDATA_FLAG_MOVESEA
@@ -843,20 +793,10 @@ MOVEITEM_NORMAL
 MOVEITEM_FORCELOCATION
 MOVEOBJECT_NORMAL
 MOVEOBJECT_FORCELOCATION
-MOVEITEM_IGNOREMOVABLE
 RESURRECT_FORCELOCATION
 MOVETYPE_PLAYER
 MOVETYPE_COREMOVE
 MOVETYPE_CORECREATE
-JOURNAL_PRINT_NAME
-JOURNAL_PRINT_YOU_SEE
-ENUMERATE_ROOT_ONLY
-FINDOBJTYPE_RECURSIVE
-FINDOBJTYPE_IGNORE_LOCKED
-FINDOBJTYPE_ROOT_ONLY
-FINDSUBSTANCE_IGNORE_LOCKED
-FINDSUBSTANCE_ROOT_ONLY
-FINDSUBSTANCE_FIND_ALL
 INSERT_ADD_ITEM
 INSERT_INCREASE_STACK
 DELETE_BY_PLAYER
@@ -867,21 +807,6 @@ TE_CANCEL_ENABLE
 TE_STYLE_DISABLE
 TE_STYLE_NORMAL
 TE_STYLE_NUMERICAL
-RACE_HUMAN
-RACE_ELF
-RACE_GARGOYLE
-DAMAGE_USE_REPSYS
-DAMAGE_NO_REPSYS
-DAMAGE_NO_SHOW
-DAMAGE_SHOW
-DAMAGE_USE_DEFAULT
-RECALC_INTRINSIC_MOD
-RECALC_NO_INTRINSIC_MOD
-RECALC_VITALS
-RECALC_NO_VITALS
-_DEFAULT_UCTEXT_REQUIREDCMD
-JOURNAL_UC_PRINT_YOU_SEE
-JOURNAL_UC_PRINT_NAME
 SYSFIND_SEARCH_OFFLINE_MOBILES
 SYSFIND_SEARCH_STORAGE_AREAS
 TGTOPT_CHECK_LOS
@@ -906,26 +831,9 @@ POLCLASS_EQUIPMENT
 POLCLASS_ARMOR
 POLCLASS_WEAPON
 REALM_BRITANNIA
-REALM_BRITANNIA_ALT
 REALM_ILSHENAR
 REALM_MALAS
 REALM_TOKUNO
-REALM_TERMUR
-ACTION_DIR_FORWARD
-ACTION_DIR_BACKWARD
-ACTION_NOREPEAT
-ACTION_REPEAT
-CANWALK_DIR
-UPDATEMOBILE_RECREATE
-UPDATEMOBILE_UPDATE
-CLOSE_PAPERDOLL
-CLOSE_STATUS
-CLOSE_PROFILE
-CLOSE_CONTAINER
-CHARPROFILE_NO_UNEDITABLE_TEXT
-CHARPROFILE_NO_EDITABLE_TEXT
-ACCESSIBLE_DEFAULT
-ACCESSIBLE_IGNOREDISTANCE
 SAY_TEXTTYPE_DEFAULT
 SAY_TEXTTYPE_WHISPER
 SAY_TEXTTYPE_YELL
@@ -941,7 +849,6 @@ _DEFAULT_TEXT_COLOR
 _DEFAULT_TEXT_FONT
 _DEFAULT_UCCOLOR
 _DEFAULT_UCFONT
-_DEFAULT_TEXT_REQUIREDCMD
 DF_KEYTYPE_STRING
 DF_KEYTYPE_INTEGER
 LOG_DATETIME
@@ -2523,9 +2430,6 @@ UOBJ_PICNIC_BASKET
 UOBJ_WOODEN_BOX_1
 UOBJ_WOODEN_BOX_2
 UOBJ_TRASHBARREL
-
-
-
 UOBJ_TINKER_TOOLS
 UOBJ_TINKER_TOOLKIT
 UOBJ_CLOCK
@@ -2902,11 +2806,6 @@ LASTPAGE
 skillvalcolor
 skillnamecolor
 ITEM_LIMIT
-
-
-
-
-
 /L2"eScript CFG"
 /Colors = 0,32768,32768,8421504,4194432,
 /Colors Back = 16777215,16777215,16777215,16777215,16777215,
@@ -2916,7 +2815,7 @@ ITEM_LIMIT
 /Line Comment = // ;
 /Line Comment Alt = # ;
 /Escape Char = \
-/String Chars = ø
+/String Chars = Ã¸
 /File Extensions = CFG
 /Delimiters = ~!@%^&*()-+=|/{}[]:;"' <>	,.?
 /Function String = "%^(?++^)[^p^r^n]{"
@@ -2926,7 +2825,6 @@ ITEM_LIMIT
 /Close Brace Strings = "}"
 /Open Fold Strings = "{"
 /Close Fold Strings = "}"
-
 /C1"ItemDesc Types" Colors = 10485760 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 armor
 boat
@@ -2941,7 +2839,6 @@ weapon
 NPCTemplate
 Group
 Elem
-
 /C2"Script Keywords" Colors = 10485760 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
 !
 %
